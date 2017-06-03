@@ -28,12 +28,16 @@ public class VirtualPetShelter {
 	}
 
 	public void intake(VirtualPet pet) {
-		shelterPets.put(pet.getName(), pet);
+		shelterPets.put(pet.getName().toLowerCase(), pet);
 	}
 
-	public void adoptOut(VirtualPet pet) {
+	public void userIntake(VirtualPet pet) {
+		shelterPets.put(pet.getName(), pet);
+	}
+	public void adoptOut(String pet) {
+		
 		shelterPets.remove(pet);
-		System.out.println(pet.name + " has found their forever home!");
+		System.out.println(pet + "has found their forever home!");
 	}
 
 	public void feedAll() {

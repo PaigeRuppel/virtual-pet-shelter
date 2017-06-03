@@ -66,22 +66,38 @@ public class VirtualPetShelterApp {
 					writeLine(myShelter.petDescriptions());
 					writeLine("Type the name of the pet you want to play with individually: ");
 					String individualPet = input.nextLine();
-					myShelter.playWith(individualPet);
+
+					myShelter.playWith(individualPet.toLowerCase());
 					break;
 				case ("5"):
-					writeLine("Okay, which pet would you like to adopt out?");
+					writeLine("You have chosen to adopt out one of your pets! Here are your current pets and their descriptions:");
+					writeLine(myShelter.petDescriptions());
+					writeLine("Type the name of the pet you want to send to its forever home: ");
+					
+					String adoptPet = input.nextLine();
+					
+					myShelter.adoptOut(adoptPet.toLowerCase());
+				
 				case ("6"):
 					writeLine("A new pet! How exciting!");
-					writeLine("Please give your pet a name");
-					writeLine("Please give your pet a description");
+					writeLine("Please give your pet a name: ");
+					String newPet = input.nextLine();
+					writeLine("Please provide the pet's breed (i.e. golden retriever, tabby  cat, etc.): ");
+					String newType = input.nextLine();
+					VirtualPet a = new VirtualPet(newPet, newType);
+					myShelter.intake(a);
+					writeLine("Now give " + newPet + " a short description (about one sentence.): ");
+					String newDescrip = input.nextLine();
+					a.giveDescription(newDescrip);
 				}
 
 			}
 			myShelter.tick();
 			writeLine(myShelter.petRoster());
-		
 
 		} while (!myShelter.shelterPets.isEmpty());
+
+		input.close();
 	}
 
 	public static void writeLine(String message) {
@@ -92,7 +108,7 @@ public class VirtualPetShelterApp {
 		writeLine(
 				"These are the commands to take care of your pets \n -to execute the command simply type the number listed next to the command:");
 		writeLine("1. Feed all the pets (decreases hunger)");
-		writeLine("2. Water all the pets (decreases thirst");
+		writeLine("2. Water all the pets (decreases thirst)");
 		writeLine("3. Play with all the pets (decreases boredom)");
 		writeLine("4. Select an individual pet to play with one-on-one");
 		writeLine("5. Adopt out a pet to their forever home.");
