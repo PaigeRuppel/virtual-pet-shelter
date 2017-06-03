@@ -8,15 +8,15 @@
 
    + Basic needs are on a scale of 0 - 100 (0 = content, 100 = needs attention)   
 
-..+ You can take care of these needs by carrying out basic commands..
+   + You can take care of these needs by carrying out basic commands   
 
-..+ Pay attention to the needs of all of the animals - keep your needs low to keep your animals happy
+   + Pay attention to the needs of all of the animals - keep your needs low to keep your animals happy   
 
 + You can also adopt out and add new pets to your shelter
 
-..+ To adopt out a pet, its social level must be 5 or higher..
+   + To adopt out a pet, its social level must be 5 or higher   
 
-..+ Increase individual animals' social level by playing with them individually..
+   + Increase individual animals' social level by playing with them individually   
 
 + The game continues until all of the pets are adopted out of your shelter
 
