@@ -2,14 +2,14 @@ package week3project;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class VirtualPetShelter {
 
-	Map<String, VirtualPet> shelterPets = new HashMap<>();
+	Map<String, VirtualPet> shelterPets = new HashMap<String, VirtualPet>();
 
+	// provides column headers for menu and calls ind roster lines from VirtualPet to build pet roster/stats
 	public String petRoster() {
-		String menu = "Name     \t | \t Hunger  \t | \t Thirst  \t | \t Boredom \n ------------------------------------------------------------";
+		String menu =  "Name     \t | \t Hunger  \t | \t Thirst  \t | \t Boredom \t | \t Social \n --------------------------------------------------------------------------";
 		String menuLine = "";
 
 		for (VirtualPet entry : shelterPets.values()) {
@@ -18,8 +18,10 @@ public class VirtualPetShelter {
 		}
 		return menu;
 	}
-
-	public String petDescriptions() {
+	
+	
+	@Override
+	public String toString() {
 		String description = "Here are your current pets: \n";
 		for (VirtualPet current : shelterPets.values()) {
 			description = description + current.toString() + "\n";
@@ -31,13 +33,25 @@ public class VirtualPetShelter {
 		shelterPets.put(pet.getName().toLowerCase(), pet);
 	}
 
-	public void userIntake(VirtualPet pet) {
+	public VirtualPet getPet(String name) {
+		return shelterPets.get(name.toLowerCase());
+	}
+
+	public void intakeUser(VirtualPet pet) {
 		shelterPets.put(pet.getName(), pet);
 	}
-	public void adoptOut(String pet) {
-		
-		shelterPets.remove(pet);
-		System.out.println(pet + "has found their forever home!");
+
+	public String adoptOut(String pet) {
+		pet = pet.toLowerCase();
+		String message = " ";
+		if (getPet(pet).hasSocialized()) {
+			shelterPets.remove(pet);
+			message = "You have sucessfully placed a pet in their forever home!";
+		} else {
+			message = getPet(pet).getName()
+					+ " has not been socialized enough to find a forever home. Try playing with them individually to boost their social stats.";
+		}
+		return message;
 	}
 
 	public void feedAll() {
@@ -59,11 +73,7 @@ public class VirtualPetShelter {
 	}
 
 	public void playWith(String pet) {
-		for (VirtualPet current : shelterPets.values()) {
-			if (shelterPets.containsKey(pet)) {
-				current.playWith();
-			} // convert key to lowercase
-		}
+		getPet(pet).playInd();
 	}
 
 	public void tick() {
