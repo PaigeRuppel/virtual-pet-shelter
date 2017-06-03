@@ -6,7 +6,7 @@
 
 + Each animal has basic needs including hunger, thirst, and boredom
 
-..+ Basic needs are on a scale of 0 - 100 (0 = content, 100 = needs attention)..
+   + Basic needs are on a scale of 0 - 100 (0 = content, 100 = needs attention)   
 
 ..+ You can take care of these needs by carrying out basic commands..
 
