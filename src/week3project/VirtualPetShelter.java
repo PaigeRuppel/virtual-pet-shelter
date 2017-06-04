@@ -21,6 +21,7 @@ public class VirtualPetShelter {
 		return menu;
 	}
 
+	// returns your collection of pets
 	@Override
 	public String toString() {
 		String description = "Here are your current pets: \n";
@@ -30,22 +31,16 @@ public class VirtualPetShelter {
 		return description;
 	}
 
-	public void intake(VirtualPet pet) {
-		shelterPets.put(pet.getName().toLowerCase(), pet);
-	}
-
+	// returns an individual VirtualPet from the name
 	public VirtualPet getPet(String name) {
 		return shelterPets.get(name.toLowerCase());
 	}
 
-	public VirtualPet getCurrentPets() {
-		return shelterPets.get(shelterPets);
+	public void intake(VirtualPet pet) {
+		shelterPets.put(pet.getName().toLowerCase(), pet);
 	}
 
-	public void intakeUser(VirtualPet pet) {
-		shelterPets.put(pet.getName(), pet);
-	}
-
+	// can only be adopted out if it hasSocialized()
 	public String adoptOut(String pet) {
 		String message = " ";
 		if (getPet(pet.toLowerCase()).hasSocialized()) {
