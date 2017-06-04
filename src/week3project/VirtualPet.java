@@ -5,7 +5,7 @@ public class VirtualPet {
 	String name;
 	String type;
 	String description;
-public int hunger;
+	int hunger;
 	int thirst;
 	int boredom;
 	int social;
@@ -48,7 +48,8 @@ public int hunger;
 		return this.description;
 	}
 
-	// individual roster/stat line for all pets
+	// individual roster/stat line for all pets (used to build roster in
+	// VirtualPetShelter)
 	public String indPetStats() {
 		return name + "\t\t | \t " + hunger + "\t\t\t | \t " + thirst + "\t\t | \t " + boredom + "\t\t\t | \t "
 				+ social;
@@ -117,10 +118,11 @@ public int hunger;
 		return boredom >= 80;
 	}
 
-boolean isDead() {
+	boolean isDead() {
 		return hunger > 99 || thirst > 99 || boredom > 99;
 	}
 
+	// adoptOut method in shelter checks to see if this is true
 	boolean hasSocialized() {
 		return social >= 5;
 	}
