@@ -9,8 +9,10 @@
    + Basic needs are on a scale of 0 - 100 (0 = content, 100 = needs attention)   
 
    + You can take care of these needs by carrying out basic commands   
+   
+   + If any of the pets' needs start to get too high, you will receive a warning
 
-   + Pay attention to the needs of all of the animals - keep your needs low to keep your animals happy   
+   + Pay attention to the needs of all of the animals - if any of the needs reach 100, the pet will die!   
 
 + You can also adopt out and add new pets to your shelter
 
