@@ -86,6 +86,7 @@ public class VirtualPetShelterApp {
 				writeLine("Type the name of the pet you want to send to its forever home: ");
 
 				String adoptPet = input.nextLine();
+				
 				writeLine(myShelter.adoptOut(adoptPet.toLowerCase()));
 
 				break;

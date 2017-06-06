@@ -8,6 +8,11 @@ public class VirtualPetShelter {
 
 	Map<String, VirtualPet> shelterPets = new HashMap<>();
 
+	// public Collection<VirtualPet> pets() {
+	// return shelterPets.values();
+	// }
+	//
+
 	// provides column headers for menu and calls ind roster lines from
 	// VirtualPet to build pet roster/stats
 	public String petRoster() {
@@ -45,7 +50,11 @@ public class VirtualPetShelter {
 		String message = " ";
 		if (getPet(pet.toLowerCase()).hasSocialized()) {
 			shelterPets.remove(pet);
-			message = "You have sucessfully placed " + getPet(pet).getName() + " in their forever home!";
+			message = "You have sucessfully placed a pet in their forever home!";
+			// this is the line I needed to change to avoid the null pointer
+			// error - previously I was trying to include the name of the pet that
+			// was removed but since the pet was removed before I called getName, it didn't
+			// have anything to actually get...
 		} else {
 			message = getPet(pet).getName() + " has not been socialized enough to find a forever home. Try playing with"
 					+ getPet(pet).getName() + "individually to boost their social stats.";
